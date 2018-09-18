@@ -1,0 +1,315 @@
+/* HEADER AND NAVIGATION
+-------------------------------------------------------------- */
+@menu-mobile-height: 66px;
+//the full width div the nav is in
+div.top {
+    position:relative; z-index:6;
+    background-color:@white;
+    width:100%;
+    .box-shadow(1px 1px 10px fade(@pure-black, 50%));
+    .registration-page & {height:0;}
+    .registration-page .my-confirmation-content & {height:auto;}
+    @media @small-only {border-bottom:1px solid fade(@pure-black, 10%);}
+    @media @medium {height:auto; z-index:5; .transition;}
+
+    //navigation div which serves as a row
+    .navigation {
+        .display(flex);
+        .flex(0, 1, auto);
+        .flex-direction(row);
+        .flex-wrap(wrap);
+        .justify-content(space-between);
+        .align-items(stretch);
+        position:relative;
+        margin:0 auto;
+        background-color:@white;
+    	@media @medium {max-width:@md-breakpoint;}
+    	@media @large {max-width:@lg-breakpoint;}
+    	@media @xlarge {max-width:@xl-breakpoint;}
+
+        #menu {
+            display:block; position:absolute; z-index:2;
+            overflow:hidden;
+            top:0; left:0;
+            float:none;
+            padding:@menu-mobile-height 0 0 0;
+            width:100%;
+            min-height:100%; max-height:0; height:auto;
+            overflow:hidden;
+            .transition;
+        	@media @medium {
+                .display(flex);
+                .flex-direction(row);
+                .flex-wrap(wrap);
+                .justify-content(flex-end);
+                .flex(0,0,auto);
+                position:relative;
+                top:auto; left:auto;
+                width:auto!important; min-height:100%;
+                max-height:none; text-align:right;
+                padding:0 0 0 20px;
+            }
+
+        	&.menu-opened {
+                @media @small-only {
+                	max-height:900px;
+                    .box-shadow(1px 1px 10px fade(@pure-black, 50%));
+                    &:after {
+                	    background:@red;
+                	    box-shadow:
+            	        0 0.25em 0 0 @red,
+            	        0 0.5em 0 0 @red;
+                    }
+                }
+            }
+
+            //hamburger icon for mobile view
+        	&:after {
+        	    content: "";
+        	    position:absolute;
+        	    right:15px; top:28px;
+        	    width:1.5em;
+        	    height:0.15em;
+        	    background:@dark-gray;
+        	    box-shadow:
+        	        0 0.25em 0 0 @dark-gray,
+        	        0 0.5em 0 0 @dark-gray;
+                .transition;
+        		@media @medium {display:none;}
+        	}
+
+            //menu items
+            li {
+                display:block; position:relative; float:none;
+                margin:0; padding:0;
+                background-color:@light-gray;
+                @media @medium {
+                    .display(flex);
+                    .flex-direction(row);
+                    .justify-content(center);
+                    .flex(0,0,auto);
+                    background-color:@white;
+                    border:none;
+                }
+                &:hover ul, ul {display:none!important;}
+                a {
+                    display:block; position:relative; z-index:3;
+                    padding:10px 15px;
+                    text-decoration: none;
+                    color:@black;
+                    font-weight:600;
+                    font-size:16px; line-height:1em;
+                    .uppercase;
+                    .transition;
+
+                    @media @medium {
+                        .display(flex);
+                        .flex-direction(row);
+                        .justify-content(center);
+                        .align-items(center);
+                        .flex(0,0,auto);
+                        overflow:hidden;
+                        border-bottom:none;
+                        color:@monsoon;
+                        font-size:14px; line-height:50px;
+                        padding:10px 20px; min-height:100%;
+                        &:hover {color:@red; &:after {.translateY(0);}}
+                        &:after {
+                            display:block; position:absolute; z-index:4;
+                            content:'';
+                            bottom:0; left:0;
+                            height:5px; width:100%;
+                            background-color:@red;
+                            .translateY(5px);
+                            .transition;
+                        }
+                    }
+                }
+                @media @medium {
+                    &:nth-child(2) a {&:hover {color:@orange;} &:after {background-color:@orange;}}
+                    &:nth-child(3) a {&:hover {color:@blue;} &:after {background-color:@blue;}}
+                    &:nth-child(4) a {&:hover {color:@green;} &:after {background-color:@green;}}
+                    &:nth-child(5) a {&:hover {color:@navy;} &:after {background-color:@navy;}}
+                }
+                &.subnav-register {
+                	padding:10px;
+                    @media @medium {padding:0;}
+                	a {
+                	    background-color:@red;
+                	    color:@white;
+                	    padding:10px 15px; margin:0;
+                	    cursor:pointer;
+                	    .transition();
+                		&:hover {color:@white;}
+                        @media @medium {
+                    	    background-color:@white;
+                    	    color:@monsoon;
+                            &:hover {background-color:@red;}
+                            &:active {background-color:@dark-red;}
+                            &:after {display:none;}
+                        }
+                	}
+                }
+            }
+        }
+    }
+    &.sticky {
+        position:fixed; z-index:500;
+        top:0; left:0;
+        border-bottom:1px solid fade(@pure-black, 10%);
+        .box-shadow(1px 1px 10px fade(@pure-black, 50%));
+        width:100%; max-width:none;
+        background-color:@white;
+    }
+}
+.content.scrolled, .registration-page .my-confirmation-content.content.scrolled {padding-top:81px;}
+.registration-page .content.scrolled {padding-top:0;}
+
+
+
+.logo-lockup {
+    .display(flex);
+    .flex-direction(row);
+    .flex-wrap(wrap);
+    .align-items(center);
+    .flex(0,0,auto);
+    position:relative; z-index:1;
+    width:auto; min-height:100%;
+    padding:15px;
+    .text {
+        .uppercase;
+        color:@monsoon;
+        font-weight:400;
+        font-size:18px; line-height:1em;
+        .top-line {display:block; font-size:70%; font-weight:600;}
+    }
+    .logo-icon {width:40px; padding-right:10px;}
+    .transition;
+    @media @medium {
+        font-size:20px;
+        &:hover {background-color:@light-gray;}
+        .logo-icon {width:50px;}
+    }
+}
+
+
+
+/* FOOTER
+-------------------------------------------------------------- */
+.cvent-footer-wrapper {
+    padding:0;
+    .privacy-policy {
+        display:block;
+        color:@gray;
+        padding:15px 20px;
+        background-color:darken(@black, 5%);
+        font-size:12px; line-height:1em;
+        .uppercase;
+        font-weight:600;
+        .transition;
+        &:hover {background-color:darken(@black, 10%); text-decoration:none!important;}
+    }
+}
+.footer {
+    position:relative; display:block; overflow:hidden;
+    padding:30px 0 50px 0!important; margin:0px;
+    color:@gray;
+    background-color:@black;
+    font-family:@myriad-pro;
+    font-style:normal; font-weight:600;
+    .uppercase;
+    font-size:14px; line-height:1em;
+	.footer-logo {display:block; margin:0 auto;}
+	.footer-links {
+        display:block; padding:7px 0;
+        text-align:center;
+    	a.link {
+    	    position:relative;
+    	    display:block;
+    	    border-top:1px solid @iron;
+    	    color:@gray;
+    	    text-decoration:none;
+    	    padding:10px 15px; margin:0;
+    	    white-space:nowrap;
+    		&:first-child {margin-top:20px;}
+    		&:hover {text-decoration:underline;}
+    	}
+    }
+    @media @large {
+        padding:20px 0 50px 0!important;
+        font-size:11px;
+    	.footer-logo {margin:0;}
+        .footer-links {
+            padding:0; text-align:right;
+            a.link {
+                display:inline-block; *zoom:1; *display:inline;
+                padding:3px 10px;
+                border-top:none;
+                &:first-child {margin-top:0;}
+                &:last-child {padding-right:0px;}
+                &:before {
+                		position:absolute; display:block;
+                		content:"";
+                		width:1px; height:14px;
+                		right:0; top:50%; margin-top:-7px;
+                		background-color:#bbbbbb;
+                	}
+                &:last-child:before {display:none;}
+            }
+        }
+    }
+    @media @xlarge {font-size:12px;}
+}
+
+
+
+
+//PAGE SECTIONS
+section {
+    position:relative; overflow:visible;
+    padding-top:40px; padding-bottom:40px;
+	&.no-padding {padding-top:0; padding-bottom:0;}
+	&.no-padding-top {padding-top:0;}
+	&.no-padding-bottom {padding-bottom:0;}
+
+    @media @medium {padding-top:60px; padding-bottom:60px;}
+}
+a.course-catalog-link-test[href=''],
+.hide-content {display:none!important;}
+
+
+
+
+//BANNER STUFF
+#hero-banner {
+    position:relative;
+    overflow:visible; z-index:3;
+    padding-top:40px; padding-bottom:40px;
+    .head {
+        padding-top:20px;
+        font-size:36px; line-height:42px;
+        font-weight:600;
+        .uppercase;
+        @media @medium {font-size:60px; line-height:62px;}
+    }
+    .sub {
+        padding-top:20px;
+        font-size:14px; line-height:18px;
+        font-weight:400;
+        .uppercase;
+    }
+    @media @medium {
+        padding-top:100px; padding-bottom:100px;
+        &.above-card {padding-bottom:180px;}
+        .sub {font-size:22px; line-height:28px;}
+    }
+
+    &.sub-page {
+        padding-top:40px; padding-bottom:40px;
+        .head {padding-top:10px;}
+        .sub {padding-top:0;}
+        @media @small-only {
+            .divider {margin-left:0; margin-right:0;}
+        }
+    }
+}//end hero banner

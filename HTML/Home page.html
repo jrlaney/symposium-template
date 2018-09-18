@@ -1,0 +1,149 @@
+<section id="hero-banner" class="background-image background-overlay city angled-bkg above-card">
+	<div class="row">
+		<div class="col text-col text-center">
+			<p class="text-label large light-gray shadow">MicroStrategy Symposium Series</p>
+			<p class="head padding-top-20">{[E-CITY]}</p>
+			<p class="h3 sub padding-top-20">{[E-START DATE]} <span class="divider"></span> {[E-LOCATION]}</p>
+		</div>
+	</div>
+	{[A-CUSTOM TAG:SYM-GFX-ANGLES]}
+</section>
+
+<section id="why-attend" class="background-light-gray flipped-hide">
+	<div class="row in-between-card">
+		<div class="card col sm-11 lg-10 xl-9 text-center">
+			{[A-CUSTOM TAG:SYM-COPY-HM-ABOUT]}
+			<a href="{[E-EVENT ID]}" class="cta-button black hide-content agenda-link">{[A-CUSTOM TAG:SYM-BTN-AGN]}</a>
+			{[A-CUSTOM TAG:SYM-BTN-REG]}
+		</div>
+	</div>
+	<div class="row">
+		{[A-CUSTOM TAG:SYM-COPY-HM-WHY-ATTEND]}
+	</div><!-- / row -->
+</section>
+
+<section id="thank-you" class="background-light-gray flipped-show">
+	<div class="row in-between-card">
+		<div class="card col sm-11 lg-10 xl-9 text-center">
+			{[A-CUSTOM TAG:SYM-COPY-HM-TY]}
+		</div>
+	</div>
+	<div class="row v-middle between">
+		<div class="col md-7">
+			{[A-CUSTOM TAG:SYM-COPY-HM-SES-HEADER]}
+		</div>
+		<div class="col md-5 lg-4">
+			<a href="{[E-EVENT ID]}" class="cta-button red large carat expand agenda-link">{[A-CUSTOM TAG:SYM-BTN-SES]}</a>
+		</div>
+	</div>
+</section>
+
+<section id="keynote" class="hide-content flipped-hide">
+	<div class="row">
+        <div class="col md-10 lg-9 text-center">
+			{[A-CUSTOM TAG:SYM-COPY-HM-KNT-HEADER]}
+        </div>
+    </div>
+    <div class="row padding-top-30">
+		{[E-CUSTOM TAG:CONTENT_KEYNOTE]}
+        <div class="col lg-5 speaker-container hide-content">
+            <div class="background-light-gray shadow">
+            	<div class="row h-left v-middle compact">
+                    <div class="col sm-12 collapse-y">
+                        {[A-CUSTOM TAG:SYM-COPY-HM-KNT-SPEAKER]}
+                    </div>
+            		{[E-CUSTOM TAG:CONTENT_ FEATURED SPEAKERS]}
+				</div>
+            </div>
+		</div>
+	</div>
+</section>
+
+<section id="workshops" class="background-image background-overlay angled-bkg reverse-angles hide-content flipped-hide">
+	<div class="row">
+		<div class="col md-10 lg-9 text-center">
+			{[A-CUSTOM TAG:SYM-COPY-HM-WS-HEADER]}
+		</div>
+	</div>
+	<div class="row stretch compact">
+		{[E-CUSTOM TAG:HP-WORKSHOP-SUMMARIES]}
+	</div>
+	<div class="row">
+		<div class="col md-8 lg-6">
+			{[A-CUSTOM TAG:SYM-BTN-WS]}
+		</div>
+	</div>
+	{[A-CUSTOM TAG:SYM-GFX-ANGLES]}
+</section>
+
+<section id="venue" class="text-center hide-content flipped-hide">
+	<div class="row">
+		<div class="col md-10 lg-9">
+			{[A-CUSTOM TAG:SYM-COPY-HM-VENUE-HEADER]}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col lg-10">
+			<div class="background-light-gray shadow">
+				<div id="map-canvas" class="map-container ratio sixteen-nine"></div>
+				<div class="padding-30">
+					{[A-CUSTOM TAG:SYM-COPY-HM-VENUE-INFO]}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{[A-CUSTOM TAG:SCRIPT-CUSTOM-MAP]}
+
+<section id="attendee-quote" class="background-image background-overlay parallax flipped-hide">
+	<div class="row">
+		<div class="col md-10 text-center">
+			{[A-CUSTOM TAG:SYM-COPY-HM-QUOTE]}
+		</div>
+	</div>
+</section>
+
+
+<section id="attendee-quote" class="background-image background-overlay parallax flipped-show">
+	<div class="row">
+		<div class="col md-10 lg-9 text-center">
+			{[A-CUSTOM TAG:SYM-COPY-HM-SCENES]}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col md-8 lg-6">
+			{[A-CUSTOM TAG:SYM-BTN-COMM]}
+		</div>
+	</div>
+</section>
+
+<section id="photo-mosaic" class="photo-mosaic no-padding">
+	<div class="row expand collapse photo-row tall">
+		<div class="col md-8">
+			<div class="photo main networking"></div>
+		</div>
+		<div class="col md-4">
+			<div class="photo half networking2"></div>
+			<div class="photo half registration"></div>
+		</div>
+	</div>
+</section>
+
+<section id="sponsorship" class="text-center">
+	<div class="row">
+		<div class="col md-10 lg-9">
+			{[A-CUSTOM TAG:SYM-COPY-HM-SPONSOR-HEADER]}
+		</div>
+	</div>
+	<div class="row sponsor-logo-wrapper">
+		{[E-CUSTOM TAG:SYM-CONTENT-SPONSOR-LOGOS]}
+	</div>
+	<div class="row">
+		{[A-CUSTOM TAG:SYM-COPY-HM-SPONSOR-INFO]}
+	</div>
+</section>
+
+<style>
+	.register-btn-bottom {display:none;}
+	div.bottom {padding:0;}
+</style>

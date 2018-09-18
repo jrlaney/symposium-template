@@ -1,0 +1,98 @@
+SYMPOSIA GRAPHICS CODES
+
+
+
+
+Name:	SYM - GRAPHICS - registration - hero banner
+Code:	SYM-GFX-REG-BANNER
+Tag:	{[A-CUSTOM TAG:SYM-COPY-REG-BANNER]}
+Content:
+<section id="hero-banner" class="sub-page background-image background-overlay city angled-bkg">
+	<div class="row">
+		<div class="col">
+			<a class="logo-lockup" href="https://www.microstrategy.com/us/resources/symposium-series"><img class="logo-icon" src="https://www.microstrategy.com/Strategy/media/external-assets/events-support/symposium-series/nav-logo_symposium.svg">
+				<div class="text">
+					<span class="top-line">MicroStrategy</span>
+					Symposium Series
+				</div>
+			</a>
+
+			<p class="sub">{[E-CITY]} <span class="divider"></span> {[E-START DATE]} <span class="divider"></span> {[E-LOCATION]}</p>
+			<p class="head">{[A-CUSTOM TAG:SYM-COPY-REG-HERO]}</p>
+		</div>
+	</div>
+	{[A-CUSTOM TAG:SYM-GFX-ANGLES]}
+</section>
+
+<script>
+document.getElementsByTagName('body')[0].className+=' registration-page'
+</script>
+
+
+
+
+Name:	SYM - GRAPHICS - agenda download slides label
+Code:	SYM-GFX-DL-SLIDES
+Tag:	{[A-CUSTOM TAG:SYM-GFX-DL-SLIDES]}
+Content:
+<div class="session-dl-block">
+<img src="https://custom.cvent.com/83AD54AE0B7F4CBC94A9A945D0A278DA/pix/8070259ed12e43e6985ff7d5f21b1701.png" class="icon" />
+<span class="dl-text">Presentation download available</span>
+</div>
+
+
+
+
+Name:	SYM - GRAPHICS - agenda presentation video
+Code:	SYM-GFX-PRES-VIDEO
+Tag:	{[A-CUSTOM TAG:SYM-GFX-PRES-VIDEO]}
+Content:
+<div class="session-dl-block">
+<img src="https://custom.cvent.com/83AD54AE0B7F4CBC94A9A945D0A278DA/pix/cc23923c8fe04cdebf278043136a3629.png" class="icon" />
+<span class="dl-text">Presentation video available</span>
+</div>
+
+
+
+
+Name:	SYM - GRAPHICS - background angles
+Code:	SYM-GFX-ANGLES
+Tag:	{[A-CUSTOM TAG:SYM-GFX-ANGLES]}
+Content:
+<div class="angle-wrapper">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 178 179" preserveAspectRatio="xMaxYMin meet" class="angle top">
+<path d="M810,81H988V260Z" transform="translate(-810 -81)"></path>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352.469 355" preserveAspectRatio="xMaxYMin meet" class="angle bottom">
+<path d="M988,19L635.524,373.88,988,374V19Z" transform="translate(-635.531 -19)"></path>
+</svg>
+</div>
+
+
+
+
+Name:	SYM - GRAPHICS - city image style
+Code:	SYM-GFX-CITY
+Tag:	{[A-CUSTOM TAG:SYM-GFX-CITY]}
+Content:
+<style>
+	.background-image.city {background-image: url({[E-CUSTOM:banner-image-src]});}
+
+	.flipped-site .flipped-hide,
+	.flipped-site #call-to-action,
+	.flipped-site .share-bar {display:none!important;}
+	.flipped-show {display:none;}
+	.flipped-site .flipped-show {display:block;}
+
+	.flipped-site.agenda-page .agendaMiddle tr.ListRowBgrd1,
+	.flipped-site.agenda-page .agendaMiddle tr.ListRowBgrd2 {margin-left:0; border-left:none;}
+	.flipped-site.agenda-page .agendaMiddle tr td.title {padding-top:20px!important;}
+	.flipped-site.agenda-page .agendaMiddle tr.ListRowBgrd1:hover,
+	.flipped-site.agenda-page .agendaMiddle tr.ListRowBgrd2:hover {background-color:#f2f2f2;}
+	.flipped-site.agenda-page .agendaMiddle tr td.time .time-label,
+	.flipped-site.agenda-page .agendaMiddle tr td.time {display:none!important;}
+	.flipped-site.agenda-page .item > table {box-shadow:1px 1px 5px rgba(0,0,0,0.5); background-color:#f9f9f9; margin-bottom:20px;}
+	.flipped-site.agenda-page .agendaMiddle tr td.title .session:before,
+	.flipped-site.agenda-page .agendaMiddle tr td.title .session:after {top:50%;}
+	.flipped-site .session-dl-block {margin-top:10px;}
+</style>

@@ -1,0 +1,614 @@
+//HOME PAGE
+
+#analyst-review-ad {
+	position:relative;
+	@media @small-only {margin:20px; width:~"calc(100% - 40px)"}
+	.ad-image {
+		position:absolute; z-index:1;
+		top:0; left:0;
+		width:100%; height:0;
+		padding-top:56%;
+		background-image:url(@ventana-analyst-report);
+		@media @medium {width:40%; height:100%; padding-top:0;}
+		@media @large {width:35%;}
+		@media @xlarge {width:27%;}
+	}
+	.ad-copy {
+		padding:~"calc(56% + 20px)" 20px 20px 20px;
+		@media @medium {padding:30px 30px 30px ~"calc(40% + 30px)";}
+		@media @large {padding-left:~"calc(35% + 30px)";}
+		@media @xlarge {padding-left:~"calc(27% + 30px)";}
+	}
+	.text-label {
+		position:absolute; z-index:2;
+		top:-10px; left:-11px;
+		padding:5px 10px; margin:0;
+		&:before {
+			position:absolute; z-index:-1;
+			content:'';
+			top:0; left:0;
+			height:100%; width:100%;
+			background-color:@red;
+			box-shadow: 1px 1px 1px fade(@pure-black, 50%);
+		}
+		&:after {
+			position:absolute; z-index:-2;
+			content:'';
+			top:13px; left:1px;
+			width:0; height:0;
+			border-top:11px solid transparent;
+			border-bottom:11px solid transparent;
+			border-right:11px solid darken(@dark-red, 5%);
+		}
+	}
+}
+
+#contest {
+	background-image:url(@dashboard-background);
+}
+
+#keynote {
+	.speaker-container {
+		.toggle {margin-top:0;}
+		.background-light-gray .row.compact {padding:10px 20px;}
+	}
+	.keynote-row {
+		@media @large {padding-right:50px;}
+		@media @xlarge {padding-right:100px;}
+	}
+}
+
+#workshops {
+	background-image:url(@workshop-background);
+
+	.workshop-summary {
+		.flex(0, 0, auto);
+		position:relative;
+		background-color:@white;
+		box-shadow:1px 1px 5px fade(@pure-black,40%);
+		width:100%;
+		margin:20px;
+		text-align:center;
+		> p {color:@black;}
+		@media @medium {
+			width:~"calc(50% - 20px)";
+			margin:10px;
+		}
+		@media @large {
+			.flex(1, 1, 0);
+			min-width:~"calc(25% - 20px)";
+			max-width:~"calc(40% - 20px)";
+		}
+	}
+}
+
+#attendee-quote {
+	padding-top:100px; padding-bottom:100px;
+	border:1px solid @white;
+	background-image:url(@keynote-background);
+}
+
+#sponsorship {
+	.sponsor-logo-wrapper .sponsor-logo {
+		.flex(0, 0, auto);
+	    position:relative;
+		width:100%; max-width:250px;
+		margin:20px;
+		@media @medium {.flex(1, 1, ~"calc(33.33% - 20px)"); margin:10px;}
+		@media @large {
+			.flex(1, 1, 0);
+			min-width:~"calc(20% - 20px)";
+			max-width:~"calc(33.33% - 20px)";
+			.IE11 & {.flex(0, 0, 25%); max-width:~"calc(25% - 20px)";}
+		}
+		@media @xlarge {max-width:~"calc(25% - 20px)";}
+		.transition;
+
+		&:hover {background-color:@light-gray;}
+	    &:before {
+	        content:'';
+	        display:block;
+			padding-bottom:56.25%;
+	    }
+		> img {
+	        display:block; position:absolute;
+	        height:auto; width:auto;
+	        top:50%; left:50%;
+	        max-height:~"calc(100% - 40px)"; max-width:~"calc(100% - 40px)";
+	        .translate(-50%,-50%);
+		}
+	}
+}
+
+#call-to-action {
+	.cta-button.red {
+		display:block;
+		font-size:22px; line-height:24px;
+		color:@black;
+		background-color:@white;
+		&:hover {background-color:@white-smoke; color:@black;}
+		&:active {background-color:@light-gray; color:@black;}
+	}
+}
+
+
+
+//AGENDA PAGE
+//used to determin spacing allowed for the time labels to the left of the list
+@time-label-width: 200px;
+
+.agenda-page .agendaMiddle {
+	//for the agenda sorting dropdown and top bar controls
+	.sort {
+		padding:0 20px;
+		@media @medium {text-align:right;}
+
+		.control {
+			padding:0;
+			span {display:none;}
+
+			> a {
+				display:inline-block!important;
+				padding:1em 2.5em;
+				background-color:@black;
+
+				color:@white;
+				.uppercase;
+				font-size:16px; line-height:18px;
+				font-weight:600;
+			    .box-shadow(1px 1px 3px fade(@pure-black,20%));
+			    .transition;
+
+				&:hover {background-color:@dark-gray;}
+				&:active {background-color:@jet;}
+			}
+		}//end control
+	}// end sort
+
+	//dont display the legend row
+	.wider {display:none;}
+
+	//div for each day of content
+	.day {
+		position:relative; z-index:2;
+		background-color:@white;
+		padding:0;
+		margin-bottom:40px;
+		li.date {display:none;}//end date
+		@media @medium {padding:0 20px;}
+	}
+
+	//contains all of the sessions under each day
+	.item {
+		padding-left:0;
+		float:none;
+		table,
+		table tbody {border:none; display:block; cursor:default;}
+		> p {display:none;}
+		table {margin:0; width:100%; background-color:transparent;}
+	}
+
+	//individual session rows
+	tr {
+		.transition;
+		&.ListRowBgrd1,
+		&.ListRowBgrd2 {
+		    display:block; position:relative;
+		    overflow:visible; width:auto;
+		    background-color:transparent;
+		    margin:0; padding:0;
+			border-top:1px solid @gainsboro;
+			cursor:pointer;
+			@media @medium {
+				border-left:1px solid @gainsboro;
+				margin:0 0 0 @time-label-width;
+			}
+		}
+		td {
+			&.time {
+				//display:none; //turn off for sessions mode
+				display:block;
+				width:auto!important;
+				overflow:hidden;
+				padding:20px 0 0 20px!important;
+
+				font-size:16px; line-height:1.2em;
+				font-weight:400;
+				.uppercase;
+				color:@gray;
+
+				&:empty {padding:0!important;}
+
+				//for the start time grouping labels generated by the script
+				.time-label {display:none;}//end time label
+				@media @medium {
+					padding-top:30px!important;
+					//for the start time grouping labels generated by the script
+					.time-label {
+					    display:block; position:absolute; z-index:1;
+					    top:-1px; left:-(@time-label-width);
+					    width:@time-label-width; padding:30px 0 0 0;
+
+					    color:@jumbo;
+					    font-size:50px; line-height:1em;
+						font-weight:300;
+					    text-transform:none; letter-spacing:normal;
+					    border-top:1px solid @gainsboro;
+						.am-pm {
+						    position:relative; z-index:1;
+						    display:inline-block; margin-bottom:0.6em; margin-left:-0.6em;
+						    vertical-align:bottom;
+							font-weight:400;
+						    font-size:26%; line-height:1;
+						    color:@gray;
+							.uppercase;
+						}
+					}//end time label
+				}//end medium width media query
+				@media @large {
+					.time-label {font-size:55px;}
+				}
+			}//end time row
+
+			//contains session name, subtitle, and description
+			&.title {
+				display:block; float:none;
+				width:100%!important;
+				padding:10px 0 30px 20px!important;
+				.transition;
+				.session {
+				    position:relative;
+				    font-size:16px; line-height:20px;
+					font-weight:400;
+				    .uppercase;
+				    color:@gray;
+				    padding-right:70px;
+					//the actual session title is in here
+					b {
+					    display:block;
+					    padding:0;
+					    font-family:@myriad-pro;
+					    font-style:normal; font-weight:600!important;
+					    color:@dark-gray;
+					    font-size:20px; line-height:25px;
+					    text-transform:none; letter-spacing:normal;
+					}
+					//for the data code of the session track, appears below the title
+					.track {
+						display:inline-block; vertical-align:middle;
+						position:relative; overflow:hidden;
+						padding:0.5em 0.75em;
+						margin:10px -10px 0 -10px;
+						background-color:@silver;
+						font-size:12px; line-height:1em;
+						font-weight:400;
+						color:@black;
+						.uppercase;
+						.transition;
+					}
+					//creates the down arrow icon when there is a description available
+					&:before,
+					&:after {
+						display:block; position:absolute;
+						content:'';
+						top:0;
+						height:15px; width:2px;
+						background-color:@pure-black;
+						opacity:0.5;
+						.transition;
+					}
+					&:before {.rotation(135deg);right:40px;}
+					&:after {.rotation(-135deg);right:30px;}
+				}//end session
+
+				div.description {
+					display:block;
+					padding:20px 60px 0 0;
+					&:before {
+					    display:block; position:relative;
+					    content:'';
+					    width:150px; height:1px;
+					    background-color:@gainsboro;
+						margin-bottom:20px;
+					}
+					p {
+						margin:0 0 20px 0;
+						&:last-child{margin-bottom:0;}
+					}
+				}
+			}//end title
+		}//end td
+		.icons {display:none;}
+
+		&:after {
+			position:absolute;
+			content:'';
+			left:0; top:0;
+			height:100%; width:0;
+			background-color:@red;
+			.transition;
+		}
+
+		//hover effects on the row
+		&:hover {
+			background-color:@snow;
+			padding-left:5px;
+			&:after {width:5px;}
+			//make the down icon red
+			.title .session {
+				.theme {background-color:@white-smoke;}
+				&:before,
+				&:after {background-color:@red; opacity:1;}
+			}
+		}
+
+		//get rid of the down icon and color change hover state when there is no description
+		&[style="cursor:default"] {
+			.title .session:before,
+			.title .session:after {display:none;}
+			.title div.description {display:none!important;}
+		}
+	}//end tr
+
+	//speakers in the generated list
+	.session-speakers {
+		display:inline-block; *zoom:1; *display:inline;
+		vertical-align:middle;
+		float:none;
+	    background-color:none;
+	    padding:15px 0 0 0; margin:0;
+	    font-size:14px; line-height:14px;
+
+		&:before {
+			display:block; position:relative;
+			content:'';
+			width:150px; height:1px;
+			background-color:@gainsboro;
+			margin-bottom:20px;
+		}
+		> h6,
+		.session-sp-list,
+		.session-sp-list > li {display:inline-block; *zoom:1; *display:inline; vertical-align:middle; float:none;}
+		> h6 {
+			.uppercase;
+			font-weight:400;
+			margin-right:7px;
+		}
+		.session-sp-list > li {
+			padding:0; margin:0;
+			height:auto;
+			a {
+				color:@monsoon;
+				text-decoration:none;
+				line-height:1em;
+				padding:0; margin:0;
+				.transition;
+				&:hover {color:@red; text-decoration:underline;}
+			}
+		}
+	}//end session speakers
+	//for the bullet formatting in the agenda list
+	.day ul .description ul {
+		list-style: none;
+		padding-left:20px;
+		& > li {
+			position:relative;
+			&:before {
+				display:block; position:absolute;
+				content:'';
+				top:3px; left:-30px;
+				width:0; height:0;
+				border-left: 10px solid transparent;
+				border-right: 10px solid @red;
+				border-top: 10px solid transparent;
+			}
+		}
+	}//end description bullets
+}//end agenda-page agendaMiddle
+
+
+
+//for the download presentation button after the event is over
+.session-dl-block {
+	display:inline-block; *zoom:1; *display:inline;
+	vertical-align:middle;
+	position:relative;
+	padding:0 10px; margin:5px -10px 0 -16px;
+	background-color:@white;
+	font-weight:400;
+	.transition;
+	.icon,
+	.track-name,
+	.dl-text {
+		display:inline-block; *zoom:1; *display:inline;
+		vertical-align:middle;
+		position:relative;
+		color:@red;
+	}
+	.icon {height:25px; margin:0 7px 0 0;}
+	.track-name {border-right:1px solid @iron; color:@monsoon; padding-right:7px; margin-right:7px;}
+}
+.agenda-page .agendaMiddle tr:hover .session-dl-block {background-color:@snow;}
+
+//for the back to top button fixed to the right size of the window
+.agenda-page div.backToTop {
+	bottom:100px; z-index:1000;
+	width:75px!important; min-height:40px;
+    border-radius:0;
+    background-color:@black;
+    border:none;
+    border-width:0 0 0 3px;
+	padding:12px 15px 5px 35px;
+	.box-shadow(2px 2px 5px fade(@pure-black, 0%));
+
+	color:@white;
+	font-weight:400;
+	.uppercase;
+	font-size:16px; line-height:16px;
+
+    .transition;
+	.arrow {left:10px; top:3px; border-color: transparent transparent @white transparent;}
+	.topText {padding-left:0; top:auto;}
+	&:hover {
+		.box-shadow(2px 2px 5px fade(@pure-black, 30%));
+		background-color:@dark-gray;
+	}
+}
+
+//for the speaker modal window
+.agenda-page {
+	position:relative;
+    #cboxOverlay {background-color:fade(@pure-black, 70%); background-image:none;}
+	#colorbox {
+		overflow:visible!important;
+		width:95%!important; height:80%!important;
+		max-width:600px; max-height:450px;
+		padding:0!important;
+		left:50%!important;
+		.translateX(-50%);
+		#cboxWrapper {
+			height:100%!important; width:100%!important;
+			display:block; position:relative;
+			overflow:visible!important;
+			background-color:@white;
+			padding:0;
+			.box-shadow(2px 2px 10px fade(@pure-black, 50%));
+			> div {height:auto;}
+
+			#cboxContent {
+				display:block; position:absolute;
+				top:0; left:0;
+				height:100%!important; width:100%!important;
+				float:none!important;
+
+				#dialog {height:auto!important; width:auto!important;}
+				#cboxLoadedContent {
+					height:auto!important; width:auto!important;
+					margin-bottom:0;
+
+					iframe {
+						position:absolute;
+						top:10px; left:10px;
+						width:~"calc(100% - 20px)"; height:~"calc(100% - 20px)";
+					}
+				}
+				#cboxClose {
+					background-image:none;
+					top:-40px; right:0;
+					@media @medium {top:0; right:-40px;}
+					height:30px; width:30px;
+					&:before, &:after {
+						display:block; position:absolute;
+						content:'';
+						top:50%; left:50%;
+						.transform(translate(-50%, -50%) rotate(45deg));
+						height:80%; width:2px;
+						background-color:@white;
+						.transition;
+					}
+					&:after {.transform(translate(-50%, -50%) rotate(-45deg));}
+					&:hover {&:before, &:after {opacity:0.6;}}
+				}
+			}
+		}
+		#cboxTopLeft,
+		#cboxTopCenter,
+		#cboxTopRight,
+		#cboxMiddleLeft,
+		#cboxMiddleRight,
+		#cboxBottomLeft,
+		#cboxBottomCenter,
+		#cboxBottomRight, {display:none;}
+	}
+
+	.speaker-in-modal {
+		padding:20px;
+		font-family:@myriad-pro;
+		font-size:18px; line-height:26px;
+		font-style:normal;
+		font-weight:300;
+	}
+}
+
+
+
+
+//SPEAKERS PAGE
+.speakers-list {
+    display:block;
+
+    width:100%;
+    margin-left:auto; margin-right:auto;
+    @media @medium {max-width:@md-breakpoint; padding:0 20px;}
+    @media @large  {max-width:@lg-breakpoint;}
+    @media @xlarge {max-width:@xl-breakpoint;}
+
+	.speaker {
+		margin:0; border:0;
+        width:100%;
+        padding:20px;
+
+		&:before, &:after {display:none;}
+		.profile-image {
+			float:none;
+			border:none;
+			.flex(0,0,150px);
+			width:150px;
+			max-height:none;
+			margin-bottom:20px;
+			border-radius:0px;
+			box-shadow: 1px 1px 5px fade(@pure-black, 50%);
+		}
+		.sp-details {
+			margin-left:0px;
+
+			> div {margin-bottom:10px;}
+			.sp-name {font-size:40px; line-height:45px; font-weight:300;}
+			.sp-title, .sp-company {.uppercase; font-weight:600;}
+		}
+		@media @large {
+			.display(flex);
+			.align-items(flex-start);
+			padding:30px;
+
+			.sp-details {margin-left:30px;}
+			.profile-image {margin-bottom:0; .flex(0,0,200px); width:200px;}
+		}
+	}
+}
+
+
+
+//WORKSHOP PAGE
+#workshop-prep {
+	.card {
+		padding:0;
+		background-image:url(@workshop-background);
+	}
+	.workshop-card {
+		min-height:100%;
+		.line {height:1px; width:45%; min-width:100px;}
+	}
+}
+
+
+
+//REGISTRATION PAGES
+.registration-page {
+	#call-to-action {display:none;}
+
+	#hero-banner {
+		padding-top:5px; padding-bottom:20px;
+		.head, .sub {padding-left:15px;}
+		.logo-lockup {
+			.display(inline-flex);
+			min-height:20px;
+			.text {color:@white;}
+			@media @medium {
+				margin-bottom:20px;
+	        	&:hover {background-color:fade(@pure-black, 50%);}
+			}
+		}
+
+	}
+}

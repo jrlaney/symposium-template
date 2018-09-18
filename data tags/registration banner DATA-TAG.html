@@ -1,0 +1,24 @@
+<section id="hero-banner" class="sub-page background-image background-overlay city angled-bkg">
+	<div class="row">
+		<div class="col">
+			<a class="logo-lockup" href="https://www.microstrategy.com/us/resources/symposium-series"><img class="logo-icon" src="https://www.microstrategy.com/Strategy/media/external-assets/events-support/symposium-series/nav-logo_symposium.svg">
+				<div class="text">
+					<span class="top-line">MicroStrategy</span>
+					Symposium Series
+				</div>
+			</a>
+
+			<p class="sub">{[E-CITY]} <span class="divider"></span> {[E-START DATE]} <span class="divider"></span> {[E-LOCATION]}</p>
+			<p class="head">{[A-CUSTOM TAG:SYM-COPY-REG-HERO]}</p>
+		</div>
+	</div>
+	{[A-CUSTOM TAG:SYM-GFX-ANGLES]}
+</section>
+
+<script>
+document.getElementsByTagName('body')[0].className+=' registration-page'
+
+jQuery(document).ready(function ($) {
+	$('#rdSC label[for=ctl00_ContentPlaceHolder1_ctl00_rptSection_ctl02_ctl01_ctl16_RadioChoices0-292522035]').html('I agree');
+}); // end document.ready
+</script>

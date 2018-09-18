@@ -1,0 +1,611 @@
+/*GLOBAL PAGE COMPONENTS
+-------------------------------------------------------------- */
+
+.angled-bkg {
+    display:block; position:relative; z-index:1;
+    overflow:hidden;
+    .angle-wrapper {
+        display:block; position:absolute; z-index:1;
+        height:100%; width:50%;
+        top:0; right:0;
+    }
+    .angle.top {right:0; top:0; opacity:0.5; height:auto; width:60%;}
+    .angle.bottom {right:0; bottom:0; opacity:0.6; height:auto; width:150%;}
+    .angle {
+        display:block; position:absolute;
+        fill-rule:evenodd;
+        fill:@pure-black;
+        opacity:0;
+        .red&, .red-color-scheme & {fill:@red;}
+        .orange&, .orange-color-scheme & {fill:@orange;}
+        .green&, .green-color-scheme & {fill:@green;}
+        .blue&, .blue-color-scheme & {fill:@blue;}
+        .navy&, .navy-color-scheme & {fill:@navy;}
+    }
+    &.reverse-angles {
+        .angle-wrapper {right:auto; left:0;}
+        .angle {
+            -moz-transform: scaleX(-1);
+            -o-transform: scaleX(-1);
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+            filter: FlipH;
+            -ms-filter: "FlipH";
+            &.top, &.bottom {left:0;}
+        }
+    }
+    @media @medium {
+        .angle-wrapper {overflow:hidden; width:100%; left:0; right:auto;}
+        .angle.top {height:60%; width:auto;}
+        .angle.bottom {height:110%; width:auto;}
+    }
+}
+
+
+
+
+/* SPECIAL LISTS
+-----------------------------------------------------------------*/
+ul.triangle-list {
+    list-style: none;
+    padding-left:30px;
+    & > li {
+        position:relative;
+        &:before {
+            display:block; position:absolute;
+            content:'';
+            top:3px; left:-45px;
+            width:0; height:0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid @red;
+            border-top: 15px solid transparent;
+        }
+    }
+    &.white > li:before {border-right-color:@white;}
+    &.light-gray > li:before {border-right-color:@silver;}
+    &.med-gray > li:before {border-right-color:@dark-gray;}
+    &.dark-gray > li:before {border-right-color:@monsoon;}
+    &.black > li:before {border-right-color:@black;}
+    &.red > li:before {border-right-color:@red;}
+    &.green > li:before {border-right-color:@green;}
+    &.blue > li:before {border-right-color:@blue;}
+    &.navy > li:before {border-right-color:@navy;}
+    &.orange > li:before {border-right-color:@orange;}
+}
+
+
+//triangle group
+@triangle-group-size: 20px;
+.triangle-group {
+    position:relative;
+    list-style: none;
+    padding-left:40px;
+    &:before {
+        display:block; position:absolute;
+        content:'';
+        top:3px; left:0; margin-left:-@triangle-group-size;
+        width:0; height:0;
+        border-left: @triangle-group-size solid transparent;
+        border-right: @triangle-group-size solid @red;
+        border-top: @triangle-group-size solid transparent;
+    }
+    &.white:before {border-right-color:@white;}
+    &.light-gray:before {border-right-color:@light-gray;}
+    &.gray:before {border-right-color:@gray;}
+    &.dark-gray:before {border-right-color:@dark-gray;}
+    &.black:before {border-right-color:@black;}
+
+    &.black:before {border-right-color:@black;}
+    &.red:before {border-right-color:@red;}
+    &.green:before {border-right-color:@green;}
+    &.blue:before {border-right-color:@blue;}
+    &.navy:before {border-right-color:@navy;}
+    &.orange:before {border-right-color:@orange;}
+}
+
+
+
+/* BUTTONS
+-----------------------------------------------------------------*/
+.cta-button {
+    display:inline-block; *display:inline; position:relative;
+    height:auto; overflow:hidden;
+    margin-right:15px;
+    padding:1em 2.5em;
+    cursor:pointer;
+    .box-shadow(1px 1px 3px fade(@pure-black,20%));
+    .transition;
+
+    &.inactive {
+        cursor:default;
+        background-color:@base!important;
+        color:fade(@white, 65%)!important;
+        .box-shadow(none);
+        &:before, &:after {background-color:fade(@white, 70%)!important;}
+    }
+
+	&:last-child {margin-right:0px;}
+	&.expand {display:block; *display:block;}
+	&.carat {
+		padding-right:3.5em; padding-left:2em;
+		&:before, &:after {
+		    display:block; position:absolute; z-index:1;
+		    content:'';
+		    right:15px; top:50%;
+		    height:10px; width:2px;
+		    background-color:@white;
+		    .transition();
+		}
+		&:before {margin-top:-8px; .rotation(-45deg);}
+		&:after {margin-top:-2px; .rotation(45deg);}
+	}
+
+	&.red {
+		background-color:@red;
+		&:hover {background-color:@light-red;}
+		&:active {background-color:@dark-red;}
+	}
+	&.orange {
+		background-color:@orange;
+		&:hover {background-color:@light-orange;}
+		&:active {background-color:@dark-orange;}
+	}
+	&.green {
+		background-color:@green;
+		&:hover {background-color:@light-green;}
+		&:active {background-color:@dark-green;}
+	}
+	&.blue {
+		background-color:@blue;
+		&:hover {background-color:@light-blue;}
+		&:active {background-color:@dark-blue;}
+	}
+	&.navy {
+		background-color:@navy;
+		&:hover {background-color:@light-navy;}
+		&:active {background-color:@dark-navy;}
+	}
+
+	&.white {
+		background-color:@white;
+		color:@black;
+		&:hover {background-color:@white-smoke; color:@black;}
+		&:active {background-color:@light-gray; color:@black;}
+
+		.text-white & {
+			background-color:@white;
+			color:@black;
+			&:hover {background-color:@white-smoke; color:@black;}
+			&:active {background-color:@light-gray; color:@black;}
+		}
+
+		&.carat:before, &.carat:after {background-color:@black;}
+	}
+	&.light-gray {
+		background-color:@light-gray;
+		color:@black;
+		&:hover {background-color:@white-smoke; color:@black;}
+		&:active {background-color:@smoke; color:@black;}
+
+		&.carat:before, &.carat:after {background-color:@black;}
+	}
+	&.gray {
+		background-color:@gray;
+		&:hover {background-color:@base;}
+		&:active {background-color:@dark-gray;}
+	}
+	&.dark-gray {
+		background-color:@dark-gray;
+		&:hover {background-color:@monsoon;}
+		&:active {background-color:@tuatara;}
+	}
+	&.black {
+		background-color:@black;
+		&:hover {background-color:@dark-gray;}
+		&:active {background-color:@jet;}
+	}
+
+
+	// &.outline {
+	// 	background-color:transparent;
+	// 	border-width:1px; border-style:solid;
+    //
+	// 	&.red {
+	// 		border-color:@red;
+	// 		&:active {border-color:@dark-red;}
+	// 		&.carat:before, &.carat:after {background-color:@red;}
+	// 		&:hover{
+	// 			background-color:@red;
+	// 			&.carat:before, &.carat:after {background-color:@white;}
+	// 		}
+	// 	}
+	// 	&.orange {
+	// 		border-color:@orange;
+	// 		&:active {border-color:@dark-orange;}
+	// 		&.carat:before, &.carat:after {background-color:@orange;}
+	// 		&:hover{
+	// 			background-color:@orange;
+	// 			&.carat:before, &.carat:after {background-color:@white;}
+	// 		}
+	// 	}
+	// 	&.green {
+	// 		border-color:@green;
+	// 		&:active {border-color:@dark-green;}
+	// 		&.carat:before, &.carat:after {background-color:@green;}
+	// 		&:hover{
+	// 			background-color:@green;
+	// 			&.carat:before, &.carat:after {background-color:@white;}
+	// 		}
+	// 	}
+	// 	&.blue {
+	// 		border-color:@blue;
+	// 		&:active {border-color:@dark-blue;}
+	// 		&.carat:before, &.carat:after {background-color:@blue;}
+	// 		&:hover{
+	// 			background-color:@blue;
+	// 			&.carat:before, &.carat:after {background-color:@white;}
+	// 		}
+	// 	}
+	// 	&.navy {
+	// 		border-color:@navy;
+	// 		&:active {border-color:@dark-navy;}
+	// 		&.carat:before, &.carat:after {background-color:@navy;}
+	// 		&:hover{
+	// 			background-color:@navy;
+	// 			&.carat:before, &.carat:after {background-color:@white;}
+	// 		}
+	// 	}
+    //
+	// 	&.white {
+	// 		border-color:@white;
+	// 		&:active {border-color:@light-gray;}
+	// 		&.carat:before, &.carat:after {background-color:@white;}
+	// 		&:hover{
+	// 			background-color:@white;
+	// 			&.carat:before, &.carat:after {background-color:@black;}
+	// 		}
+	// 	}
+	// 	&.light-gray {
+	// 		border-color:@light-gray;
+	// 		&:active {border-color:@smoke;}
+	// 		&.carat:before, &.carat:after {background-color:@light-gray;}
+	// 		&:hover{
+	// 			background-color:@light-gray;
+	// 			&.carat:before, &.carat:after {background-color:@black;}
+	// 		}
+	// 	}
+	// 	&.gray {
+	// 		border-color:@gray;
+	// 		&:active {border-color:@dark-gray;}
+	// 		&.carat:before, &.carat:after {background-color:@gray;}
+	// 		&:hover{
+	// 			background-color:@gray;
+	// 			&.carat:before, &.carat:after {background-color:@white;}
+	// 		}
+	// 	}
+    //
+	// 	&.dark-gray {
+	// 		border-color:@dark-gray;
+	// 		&:active {border-color:@black;}
+	// 		&.carat:before, &.carat:after {background-color:@dark-gray;}
+	// 		&:hover{
+	// 			background-color:@dark-gray;
+	// 			&.carat:before, &.carat:after {background-color:@white;}
+	// 		}
+	// 	}
+    //
+	// 	&.black {
+	// 		border-color:@black;
+	// 		&:active {border-color:@jet;}
+	// 		&.carat:before, &.carat:after {background-color:@black;}
+	// 		&:hover{
+	// 			background-color:@black;
+	// 			&.carat:before, &.carat:after {background-color:@white;}
+	// 		}
+	// 	}
+	// }
+}
+
+a.cta-button,
+.cta-button {
+    font-family:@myriad-pro;
+    font-style:normal; font-weight:600;
+    color:@white;
+    text-align:center;
+    font-size:16px; line-height:16px;
+    .uppercase;
+    text-decoration:none!important;
+
+	&.small {font-size:14px;line-height:16px;}
+	&.medium {font-size:16px;line-height:18px;}
+	&.large {font-size:18px;line-height:20px;}
+	&.white, &.light-gray {color: @black;}
+	&.carat {text-align: left;}
+	&.outline {
+		&.red {color:@red;}
+		&.orange {color:@orange;}
+		&.green {color:@green;}
+		&.blue {color:@blue;}
+		&.navy {color:@navy;}
+
+		&.white {color:@white;}
+		&.light-gray {color:@light-gray;}
+		&.gray {color:@gray;}
+		&.dark-gray {color:@dark-gray;}
+		&.black {color:@black;}
+
+		&:hover {
+			&.red, &.orange, &.green, &.blue, &.navy, &.gray, &.dark-gray, &.black {color:@white;}
+			&.white, &.light-gray {color:@black;}
+		}
+	}
+}
+
+
+
+
+
+/* LINES
+-----------------------------------------------------------------*/
+.line {
+	display:inline-block; *zoom:1; *display:inline;
+	height:8px; width:70px;
+	// &.tiny   {min-width:50px; width:10%;}
+	 &.small  {min-width:70px; width:20%;}
+	 &.medium {min-width:100px; width:40%}
+	// &.large  {width:70%}
+	// &.jumbo  {width:90%}
+
+	 &.thin{height:1px}
+	// &.thick{height:8px}
+
+	&.white{background-color:@white}
+	&.light-gray{background-color:@iron}
+	&.gray{background-color:@gray}
+	&.dark-gray{background-color:@dark-gray}
+	&.black{background-color:@black}
+
+	&.red{background-color:@red}
+	&.green{background-color:@green}
+	&.blue{background-color:@blue}
+	&.navy{background-color:@navy}
+	&.orange{background-color:@orange}
+}
+
+.divider {
+    display:block;
+    width:50px; height:2px;
+    background-color:@white;
+    margin:10px auto;
+    @media @medium {
+        display:inline-block;
+        vertical-align:middle;
+        width:2px; height:20px;
+        margin:0 20px 5px 20px;
+    }
+}
+
+
+
+//CARD BETWEEN ROWS
+.in-between-card.row {
+    position:relative; z-index:5;
+    margin-bottom:60px;
+    .card {
+        position:relative; z-index:5;
+        background-color:@white;
+        padding:20px;
+        color:@dark-gray;
+        .box-shadow(1px 1px 5px fade(@pure-black,50%));
+        &.background-light-gray {background-color:@light-gray;}
+        &.background-black {background-color:@black; color:@white;}
+    }
+    @media @medium {
+		margin-top:-150px;
+        .card {padding:30px;}
+    }
+}
+section.above-card {
+    @media @medium {padding-bottom:150px; position:relative; z-index:4;}
+}
+
+
+
+
+
+//ACCORDION
+.accordion {
+    .accordion-content {
+        display:none; overflow:hidden; opacity:0;
+        .transition;
+    }
+    .cta-button.carat.toggle {
+        &:before {margin-top:-5px; right:21px;}
+        &:after {margin-top:-5px;}
+    }
+    .dynamic-text {
+        &.more-details:before {content:'More details'}
+        &.read-bio:before {content:'Show Bio'}
+    }
+    &.expanded {
+        .accordion-content {opacity:1;}
+        .cta-button.carat.toggle {
+            &:before {.rotation(-135deg);}
+            &:after {.rotation(135deg);}
+        }
+        .dynamic-text {
+            &.more-details:before {content:'Less details'}
+            &.read-bio:before {content:'Hide Bio'}
+        }
+    }
+}
+
+
+
+
+
+//FOR PHOTO MOSAIC ROWS
+.photo-row {
+    .photo {
+        border:1px solid @white;
+        padding-bottom:56.25%;
+        &.half {width:50%; float:left;}
+    }
+    @media @medium {
+        &.tall {height:300px;}
+        &.medium {height:250px;}
+        &.short {height:150px;}
+        .col {height:100%;}
+        .photo {
+            height:100%; width:100%;
+            padding-bottom:0;
+            &.half {width:auto; float:none; height:50%; padding-bottom:0;}
+        }
+    }
+    @media @large {
+        &.tall {height:600px;}
+        &.medium {height:450px;}
+        &.short {height:250px;}
+    }
+}
+
+.photo {
+    .responsive-photo;
+    &.workshop     {background-image:url(@workshop-background);}
+    &.canal        {background-image:url(@canal-background);}
+    &.networking   {background-image:url(@networking-background);}
+    &.networking2  {background-image:url(@networking2-background);}
+    &.registration {background-image:url(@registration-background);}
+    &.session      {background-image:url(@session-background);}
+    &.presentation {background-image:url(@presentation-background);}
+    &.keynote      {background-image:url(@keynote-background);}
+    &.signage      {background-image:url(@signage);}
+}
+
+
+
+
+//LABEL-LIKE TEXT BLOCKS
+.text-label {
+    display:inline-block;
+    vertical-align:top;
+    margin:0 10px 5px 0;
+    padding:0.5em 0.75em;
+    font-family:@myriad-pro;
+    line-height:1;
+    font-weight:400;
+    .uppercase;
+    white-space:nowrap;
+
+    // default
+    font-size:12px;
+    background-color:@light-gray;
+    color:@black;
+
+    //sizes
+    &.small {font-size:10px;}
+    &.large {font-size:14px;}
+
+    //colors
+    &.red {background-color:@red;}
+    &.orange {background-color:@orange;}
+    &.green {background-color:@green;}
+    &.blue {background-color:@blue;}
+    &.navy {background-color:@navy;}
+
+    &.white {background-color:@white;}
+    &.light-gray {background-color:@light-gray;}
+    &.gray {background-color:@gray;}
+    &.dark-gray {background-color:@dark-gray;}
+    &.black {background-color:@black;}
+
+    &.red,
+    &.orange,
+    &.green,
+    &.blue,
+    &.navy,
+    &.gray,
+    &.dark-gray,
+    &.black {color:@white;}
+
+    //outline version
+    &.outline {
+        border:1px solid @light-gray;
+        &.red {color:@red; border-color:@red;}
+        &.orange {color:@orange; border-color:@orange;}
+        &.green {color:@green; border-color:@green;}
+        &.blue {color:@blue; border-color:@blue;}
+        &.navy {color:@navy; border-color:@navy;}
+
+        &.white {color:@white; border-color:@white;}
+        &.light-gray {color:@light-gray; border-color:@light-gray;}
+        &.gray {color:@gray; border-color:@gray;}
+        &.dark-gray {color:@dark-gray; border-color:@dark-gray;}
+        &.black {color:@black; border-color:@black;}
+
+        &.red,
+        &.orange,
+        &.green,
+        &.blue,
+        &.navy,
+        &.white,
+        &.light-gray,
+        &.gray,
+        &.dark-gray,
+        &.black {background-color:transparent;}
+    }
+}
+
+
+
+//icon header
+.icon-header {
+    .display(flex);
+    .justify-content(flex-start);
+    .align-items(center);
+    .icon {
+        .flex(0, 0, auto);
+        margin-right:10px;
+        width:60px;
+        &.rounded {.round; padding:15px;}
+
+        &.red {background-color:@red;}
+        &.orange {background-color:@orange;}
+        &.green {background-color:@green;}
+        &.blue {background-color:@blue;}
+        &.navy {background-color:@navy;}
+
+        &.white {background-olor:@white;}
+        &.light-gray {background-color:@light-gray;}
+        &.gray {background-color:@gray;}
+        &.dark-gray {background-color:@dark-gray;}
+        &.black {background-color:@black;}
+    }
+}
+
+
+
+//google map container
+.map-container {border:5px solid @white; padding-bottom:56.25%;}
+
+
+
+
+
+//levels of difficulty for workshops
+.lvl {
+    position:relative;
+    color:@green;
+    white-space:nowrap;
+    margin-left:5px; padding-left:15px;
+    &:before {
+        display:block; position:absolute;
+        content:"";
+        left:0; top:50%; margin-top:-6px;
+        height:10px; width:10px;
+        background-color:@green;
+        .round;
+    }
+    &.intermediate {color:@orange; &:before {background-color:@orange;}}
+    &.advanced {color:@red; &:before {background-color:@red;}}
+}
