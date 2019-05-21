@@ -58,8 +58,12 @@
 	}
 }
 
-#workshops {
+#call-for-speakers {
 	background-image:url(@workshop-background);
+}
+
+#workshops {
+	//background-image:url(@workshop-background);
 
 	.workshop-summary {
 		.flex(0, 0, auto);
@@ -124,10 +128,6 @@
 	.cta-button.red {
 		display:block;
 		font-size:22px; line-height:24px;
-		color:@black;
-		background-color:@white;
-		&:hover {background-color:@white-smoke; color:@black;}
-		&:active {background-color:@light-gray; color:@black;}
 	}
 }
 
@@ -405,7 +405,19 @@
 		}
 	}//end description bullets
 }//end agenda-page agendaMiddle
-
+//change some styles for the flipped site
+.flipped-site.agenda-page {
+	.agendaMiddle tr.ListRowBgrd1,
+	.agendaMiddle tr.ListRowBgrd2 {margin-left:0; border-left:none;}
+	.agendaMiddle tr td.title {padding-top:20px!important;}
+	.agendaMiddle tr.ListRowBgrd1:hover,
+	.agendaMiddle tr.ListRowBgrd2:hover {background-color:#f2f2f2;}
+	.agendaMiddle tr td.time .time-label,
+	.agendaMiddle tr td.time {display:none!important;}
+	.item > table {box-shadow:1px 1px 5px rgba(0,0,0,0.5); background-color:#f9f9f9; margin-bottom:20px;}
+	.agendaMiddle tr td.title .session:before,
+	.agendaMiddle tr td.title .session:after {top:50%;}
+}
 
 
 //for the download presentation button after the event is over
@@ -413,7 +425,7 @@
 	display:inline-block; *zoom:1; *display:inline;
 	vertical-align:middle;
 	position:relative;
-	padding:0 10px; margin:5px -10px 0 -16px;
+	padding:0 10px; margin:10px -10px 0 -16px;
 	background-color:@white;
 	font-weight:400;
 	.transition;

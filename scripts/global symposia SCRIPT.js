@@ -86,34 +86,28 @@ jQuery(document).ready(function ($) {
 	if ($('#course-catalog-link').attr('href') != '') {
 		$('#course-catalog-link').removeClass('hide-content');
 	};
-
+	if ($('#hero-video-link').attr('data-wistiaid') != '') {
+		$('#hero-video-link').removeClass('hide-content');
+	};
 	//show keynote section if a keynote desc or speaker is added
 	$("#keynote:has(.speaker-row, .keynote-row)").removeClass('hide-content');
-
 	//remove empty keynote speaker section
 	$("#keynote .speaker-container:has(.speaker-row)").removeClass('hide-content');
-
 	//show workshop section when summaries are added
 	$("#workshops:has(.workshop-summary)").removeClass('hide-content');
-
 	//show workshop details section when details are added
 	$("#workshop-details:has(.workshop-details)").removeClass('hide-content');
-
 	//remove empty venue section if the link isnt filled in
 	if ($('#venue-link').attr('href') != '') {
 		$('#venue').removeClass('hide-content');
 	};
-
 	//make the nav sticky on scroll
 	$(function() {
-
 		// grab the initial top offset of the navigation
 		var sticky_navigation_offset_top = $('.top').offset().top;
-
 		// our function that decides weather the navigation bar should have "fixed" css position or not.
 		var sticky_navigation = function(){
 			var scroll_top = $(window).scrollTop(); // our current vertical position from the top
-
 			// if we've scrolled more than the navigation, change its position to fixed to stick to top,
 			// otherwise change it back to relative
 			if (scroll_top > sticky_navigation_offset_top) {
@@ -124,17 +118,10 @@ jQuery(document).ready(function ($) {
 				$('.content').removeClass( 'scrolled' );
 			}
 		};
-
-		// run our function on load
 		sticky_navigation();
-
-		// and run it again every time you scroll
 		$(window).scroll(function() {
 			sticky_navigation();
 		});
-
 	});//end sticky nav
-
 }); // end document.ready
-
 </script>

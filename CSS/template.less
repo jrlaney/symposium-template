@@ -274,8 +274,15 @@ section {
 
     @media @medium {padding-top:60px; padding-bottom:60px;}
 }
-a.course-catalog-link-test[href=''],
 .hide-content {display:none!important;}
+
+//turn sections on and off for the flipped site
+.flipped-site .flipped-hide,
+.flipped-site #call-to-action,
+.flipped-site .share-bar {display:none!important;}
+.flipped-show {display:none;}
+.flipped-site .flipped-show {display:block;}
+
 
 
 
@@ -289,7 +296,7 @@ a.course-catalog-link-test[href=''],
         padding-top:20px;
         font-size:36px; line-height:42px;
         font-weight:600;
-        .uppercase;
+        //.uppercase;
         @media @medium {font-size:60px; line-height:62px;}
     }
     .sub {

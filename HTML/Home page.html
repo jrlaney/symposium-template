@@ -1,12 +1,12 @@
-<section id="hero-banner" class="background-image background-overlay city angled-bkg above-card">
+<section id="hero-banner" class="background-image background-overlay city above-card">
 	<div class="row">
 		<div class="col text-col text-center">
-			<p class="text-label large light-gray shadow">MicroStrategy Symposium Series</p>
-			<p class="head padding-top-20">{[E-CITY]}</p>
-			<p class="h3 sub padding-top-20">{[E-START DATE]} <span class="divider"></span> {[E-LOCATION]}</p>
+			<p class="text-label large white shadow">MicroStrategy Symposium Series</p>
+			<p class="head padding-top-20">{[A-CUSTOM TAG:SYM-COPY-HM-EVENT-NAME]}</p>
+			{[A-CUSTOM TAG:SYM-BTN-HRO-VID]}
+			<p class="h3 sub padding-top-20">{[E-START DATE]} <span class="divider"></span> {[E-LOCATION]} <span class="divider"></span> {[E-CITY]}</p>
 		</div>
 	</div>
-	{[A-CUSTOM TAG:SYM-GFX-ANGLES]}
 </section>
 
 <section id="why-attend" class="background-light-gray flipped-hide">
@@ -59,7 +59,21 @@
 	</div>
 </section>
 
-<section id="workshops" class="background-image background-overlay angled-bkg reverse-angles hide-content flipped-hide">
+
+<section id="call-for-speakers" class="background-image background-overlay flipped-hide">
+	<div class="row v-middle">
+		<div class="col md-7 lg-8">
+			{[A-CUSTOM TAG:SYM-COPY-HM-CALL-SPEAKERS-HEAD]}
+		</div>
+		<div class="col md-4">
+			{[A-CUSTOM TAG:SYM-BTN-CALL-SPKRS]}
+		</div>
+	</div>
+</section>
+
+
+
+<section id="workshops" class="hide-content flipped-hide">
 	<div class="row">
 		<div class="col md-10 lg-9 text-center">
 			{[A-CUSTOM TAG:SYM-COPY-HM-WS-HEADER]}
@@ -73,7 +87,6 @@
 			{[A-CUSTOM TAG:SYM-BTN-WS]}
 		</div>
 	</div>
-	{[A-CUSTOM TAG:SYM-GFX-ANGLES]}
 </section>
 
 <section id="venue" class="text-center hide-content flipped-hide">
@@ -95,7 +108,7 @@
 </section>
 {[A-CUSTOM TAG:SCRIPT-CUSTOM-MAP]}
 
-<section id="attendee-quote" class="background-image background-overlay parallax flipped-hide">
+<section id="attendee-quote" class="background-image background-overlay parallax">
 	<div class="row">
 		<div class="col md-10 text-center">
 			{[A-CUSTOM TAG:SYM-COPY-HM-QUOTE]}
@@ -103,19 +116,6 @@
 	</div>
 </section>
 
-
-<section id="attendee-quote" class="background-image background-overlay parallax flipped-show">
-	<div class="row">
-		<div class="col md-10 lg-9 text-center">
-			{[A-CUSTOM TAG:SYM-COPY-HM-SCENES]}
-		</div>
-	</div>
-	<div class="row">
-		<div class="col md-8 lg-6">
-			{[A-CUSTOM TAG:SYM-BTN-COMM]}
-		</div>
-	</div>
-</section>
 
 <section id="photo-mosaic" class="photo-mosaic no-padding">
 	<div class="row expand collapse photo-row tall">
@@ -142,6 +142,8 @@
 		{[A-CUSTOM TAG:SYM-COPY-HM-SPONSOR-INFO]}
 	</div>
 </section>
+
+{[A-CUSTOM TAG:WISTIA-POPOVER]}
 
 <style>
 	.register-btn-bottom {display:none;}

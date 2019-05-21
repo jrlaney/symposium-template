@@ -1,3 +1,62 @@
+//color dot indicating levels of difficulty for workshops
+.lvl {
+    position:relative;
+    color:@green;
+    white-space:nowrap;
+    margin-left:5px; padding-left:15px;
+    &:before {
+        display:block; position:absolute;
+        content:"";
+        left:0; top:50%; margin-top:-6px;
+        height:10px; width:10px;
+        background-color:@green;
+        .round;
+    }
+    &.intermediate {color:@orange; &:before {background-color:@orange;}}
+    &.advanced {color:@red; &:before {background-color:@red;}}
+}
+
+//background with SVG triangles layed over it
+.angled-bkg {
+    display:block; position:relative; z-index:1;
+    overflow:hidden;
+    .angle-wrapper {
+        display:block; position:absolute; z-index:1;
+        height:100%; width:50%;
+        top:0; right:0;
+    }
+    .angle.top {right:0; top:0; opacity:0.5; height:auto; width:60%;}
+    .angle.bottom {right:0; bottom:0; opacity:0.6; height:auto; width:150%;}
+    .angle {
+        display:block; position:absolute;
+        fill-rule:evenodd;
+        fill:@pure-black;
+        opacity:0;
+        .red&, .red-color-scheme & {fill:@red;}
+        .orange&, .orange-color-scheme & {fill:@orange;}
+        .green&, .green-color-scheme & {fill:@green;}
+        .blue&, .blue-color-scheme & {fill:@blue;}
+        .navy&, .navy-color-scheme & {fill:@navy;}
+    }
+    &.reverse-angles {
+        .angle-wrapper {right:auto; left:0;}
+        .angle {
+            -moz-transform: scaleX(-1);
+            -o-transform: scaleX(-1);
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+            filter: FlipH;
+            -ms-filter: "FlipH";
+            &.top, &.bottom {left:0;}
+        }
+    }
+    @media @medium {
+        .angle-wrapper {overflow:hidden; width:100%; left:0; right:auto;}
+        .angle.top {height:60%; width:auto;}
+        .angle.bottom {height:110%; width:auto;}
+    }
+}
+
 //RATIO BOX OPTIONS
 .ratio {
     display:block;
